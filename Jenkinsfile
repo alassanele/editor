@@ -25,6 +25,5 @@ try{
 }finally{
     notifyBuild(currentBuild.result)
  }
-}
 
 }
