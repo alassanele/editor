@@ -1,5 +1,5 @@
 node {
-    def WORKSPACE = "/var/lib/jenkins/workspace/project_git"
+    def WORKSPACE = "/var/lib/jenkins/workspace/project_git_maven_docker"
     def dockerImageTag = "springboot-deploy${env.BUILD_NUMBER}"
 
 try{
