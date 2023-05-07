@@ -11,7 +11,7 @@ node {
             // for display purposes
             // Get some code from a GitHub repository
             git url: 'https://github.com/alassanele/editor.git '
-                branch: 'master'
+                branch: 'feat/test_dockerhub '
          }
 
 /*
