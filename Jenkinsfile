@@ -1,7 +1,7 @@
 pipeline {
     //def WORKSPACE = "/var/lib/jenkins/workspace/project_git_maven_docker"
 
-    agent {label, 'linux'}
+    agent any
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
