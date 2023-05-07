@@ -7,17 +7,21 @@ node {
       }
 
     try{
+    stages{
          stage('Clone Repo') {
+         steps{
             // for display purposes
             // Get some code from a GitHub repository
             git url: 'https://github.com/alassanele/editor.git '
                 branch: 'feat/test_dockerhub '
+                }
          }
 
 
           stage('Build docker') {
+            steps{
                  dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
-          }
+          }}
 
 
 /*
@@ -42,7 +46,7 @@ node {
                  }
                }
 
-
+}
           //stage('Deploy docker'){
           //        echo "Docker Image Tag Name: ${dockerImageTag}"
           //        sh "docker stop springboot-deploy || true && docker rm springboot-deploy || true"
