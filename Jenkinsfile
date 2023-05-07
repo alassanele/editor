@@ -3,7 +3,7 @@ node {
     def dockerImageTag = "springboot-deploy${env.BUILD_NUMBER}"
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('credential_dockerhub')
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
       }
 
     try{
@@ -19,7 +19,7 @@ node {
                  dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
           }
 
-          */
+
 
 
            stage('Docker Build, Push'){
@@ -28,9 +28,9 @@ node {
                 sh "docker push springboot-deploy:${env.BUILD_NUMBER}"
                 }
            }
+*/
 
 
-/*
               stage('Login') {
                  steps {
                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -42,7 +42,7 @@ node {
                  }
                }
 
- */
+
           //stage('Deploy docker'){
           //        echo "Docker Image Tag Name: ${dockerImageTag}"
           //        sh "docker stop springboot-deploy || true && docker rm springboot-deploy || true"
