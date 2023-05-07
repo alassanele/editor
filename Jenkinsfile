@@ -19,7 +19,7 @@ pipeline {
             steps{
                 sh 'docker build -t editor:latest .'
             }
-        }
+        }/*
         stage('Login') {
              steps {
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -29,6 +29,14 @@ pipeline {
              steps {
                sh 'docker push editor:latest'
              }
-        }
+        }*/
+
+        stage('Push Docker Image') {
+                    steps {
+                        withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
+                            sh "docker push editor:latest"
+                        }
+                    }
+                }
     }
 }
