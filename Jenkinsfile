@@ -1,6 +1,5 @@
 pipeline {
     //def WORKSPACE = "/var/lib/jenkins/workspace/project_git_maven_docker"
-    def dockerImageTag = "springboot-deploy${env.BUILD_NUMBER}"
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
@@ -16,7 +15,7 @@ pipeline {
         }
         stage('Build docker') {
             steps{
-                 dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
+                 dockerImage = docker.build("editor:latest")
             }
         }
         stage('Login') {
@@ -26,7 +25,7 @@ pipeline {
         }
         stage('Push') {
              steps {
-               sh "docker push springboot-deploy:${env.BUILD_NUMBER}"
+               sh "docker push editor:latest"
              }
         }
     }
