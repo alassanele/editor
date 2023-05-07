@@ -11,7 +11,8 @@ pipeline {
              steps{
                 // for display purposes
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/alassanele/editor.git' branch: 'feat/test_dockerhub'
+                git url: 'https://github.com/alassanele/editor.git '
+                    branch: 'feat/test_dockerhub '
              }
         }
         stage('Build docker') {
