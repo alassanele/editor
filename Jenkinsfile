@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Build docker') {
             steps{
-                sh 'docker build -t editor:latest .'
+                sh 'docker build -t azonelka/editor:latest .'
             }
         }/*
         stage('Login') {
@@ -34,7 +34,7 @@ pipeline {
         stage('Push Docker Image') {
                     steps {
                         withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
-                            sh "docker push editor:latest"
+                            sh "docker push azonelka/editor:latest"
                         }
                     }
                 }
