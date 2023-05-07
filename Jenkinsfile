@@ -15,7 +15,7 @@ node {
           //}
 
            stage('Docker Build, Push'){
-              withDockerRegistry([credentialsId: "${credential_hub.docker}", url: 'https://hub.docker.com/']) {
+              withDockerRegistry([credentialsId: "${credential_dockerhub}", url: 'https://hub.docker.com/']) {
                 sh "docker build -t springboot-deploy:${env.BUILD_NUMBER} ."
                 sh "docker push springboot-deploy:${env.BUILD_NUMBER}"
                 }
