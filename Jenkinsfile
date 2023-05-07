@@ -1,6 +1,8 @@
 pipeline {
     //def WORKSPACE = "/var/lib/jenkins/workspace/project_git_maven_docker"
 
+    agent {label, 'linux'}
+
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
@@ -9,8 +11,7 @@ pipeline {
              steps{
                 // for display purposes
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/alassanele/editor.git '
-                    branch: 'feat/test_dockerhub '
+                git url: 'https://github.com/alassanele/editor.git' branch: 'feat/test_dockerhub'
              }
         }
         stage('Build docker') {
