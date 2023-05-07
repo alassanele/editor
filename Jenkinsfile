@@ -17,7 +17,8 @@ pipeline {
         }
         stage('Build docker') {
             steps{
-                 dockerImage = docker.build("editor:latest")
+                sh 'docker build -t editor:latest .'
+                //dockerImage = docker.build("editor:latest")
             }
         }
         stage('Login') {
