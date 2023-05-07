@@ -14,13 +14,13 @@ node {
                 branch: 'feat/test_dockerhub '
          }
 
-/*
+
           stage('Build docker') {
                  dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
           }
 
 
-
+/*
 
            stage('Docker Build, Push'){
               withDockerRegistry([credentialsId: "${dockerhub}", url: 'https://hub.docker.com/']) {
