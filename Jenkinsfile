@@ -18,7 +18,6 @@ pipeline {
         stage('Build docker') {
             steps{
                 sh 'docker build -t editor:latest .'
-                //dockerImage = docker.build("editor:latest")
             }
         }
         stage('Login') {
@@ -28,7 +27,7 @@ pipeline {
         }
         stage('Push') {
              steps {
-               sh "docker push editor:latest"
+               sh 'docker push editor:latest'
              }
         }
     }
