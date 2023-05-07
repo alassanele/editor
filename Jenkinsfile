@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Push') {
              steps {
-               sh 'docker push editor:latest'
+               sh 'docker push azonelka/editor:latest'
              }
         }*/
 
