@@ -14,19 +14,23 @@ node {
                 branch: 'master'
          }
 
+/*
           stage('Build docker') {
                  dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
           }
 
-/*
+          */
+
+
            stage('Docker Build, Push'){
               withDockerRegistry([credentialsId: "${credential_dockerhub}", url: 'https://hub.docker.com/']) {
                 sh "docker build -t springboot-deploy:${env.BUILD_NUMBER} ."
                 sh "docker push springboot-deploy:${env.BUILD_NUMBER}"
                 }
            }
-           */
 
+
+/*
               stage('Login') {
                  steps {
                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -38,7 +42,7 @@ node {
                  }
                }
 
-
+ */
           //stage('Deploy docker'){
           //        echo "Docker Image Tag Name: ${dockerImageTag}"
           //        sh "docker stop springboot-deploy || true && docker rm springboot-deploy || true"
