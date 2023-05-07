@@ -3,7 +3,7 @@ node {
     def dockerImageTag = "springboot-deploy${env.BUILD_NUMBER}"
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+        DOCKERHUB_CREDENTIALS = credentials('credential_dockerhub')
       }
 
     try{
