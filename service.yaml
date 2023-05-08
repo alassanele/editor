@@ -1,0 +1,16 @@
+#Service Type nodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: editor-service
+  labels:
+    app: editor-app
+spec:
+  selector:
+    app: editor-app
+
+  type: NodePort
+  ports:
+    - nodePort: 31000
+      port: 8081
+      targetPort: 8081

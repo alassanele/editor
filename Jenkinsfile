@@ -19,7 +19,8 @@ pipeline {
             steps{
                 sh 'docker build -t azonelka/editor:latest .'
             }
-        }/*
+        }
+        /*
         stage('Login') {
              steps {
                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -30,13 +31,18 @@ pipeline {
                sh 'docker push azonelka/editor:latest'
              }
         }*/
-
         stage('Push Docker Image') {
-                    steps {
-                        withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
-                            sh "docker push azonelka/editor:latest"
-                        }
-                    }
+            steps {
+                withDockerRegistry([credentialsId: "dockerhub", url: "https://index.docker.io/v1/"]) {
+                    sh "docker push azonelka/editor:latest"
                 }
+            }
+        }
+        stage('Deploy Artifacts to Production') {
+            steps {
+                sh "kubectl apply -f deployment.yaml\""
+                sh "kubectl apply -f service.yaml\""
+            }
+       }
     }
 }

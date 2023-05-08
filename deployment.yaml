@@ -1,0 +1,22 @@
+#Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: editor-deploy
+  labels:
+    app: editor-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: editor-app
+  template:
+    metadata:
+      labels:
+        app: editor-app
+    spec:
+      containers:
+        - name: editor-container
+          image: azonelka/editor:latest
+          ports:
+            - containerPort: 8081
