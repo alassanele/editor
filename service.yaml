@@ -8,7 +8,8 @@ metadata:
 spec:
   selector:
     app: editor-app
-  type: LoadBalancer
+
+  type: NodePort
   ports:
     - nodePort: 31000
       port: 8081
