@@ -38,11 +38,12 @@ pipeline {
                 }
             }
         }
+        /*
         stage('Deploy Artifacts to Production') {
             steps {
                 sh "kubectl apply -f deployment.yaml\""
                 sh "kubectl apply -f service.yaml\""
             }
-       }
+       }*/
     }
 }
